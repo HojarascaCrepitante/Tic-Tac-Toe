@@ -23,13 +23,11 @@ const gameLogic = (function(){
     let button1 = document.getElementById('player1')
     button1.addEventListener('click', () => {
         player1 =playerObj(document.getElementById('Player1').value ,button1.dataset.player)
-        console.log(player1)
     })
 
     let button2 = document.getElementById('player2')
     button2.addEventListener('click', () =>{
         player2 = playerObj(document.getElementById('Player2').value ,button2.dataset.player)
-        console.log(player2)
     })
 
     const getSymbol = function(){
@@ -68,14 +66,11 @@ const gameLogic = (function(){
             document.body.appendChild(congratulations)
         }
     }
-    
-        
     return {getSymbol, isWinner,announceWinner}
 })()
 
 const gameBoard = (function(){
     let myBoard = [,,,,,,,,,];
-     console.log(myBoard)
     let spots = document.querySelectorAll('.spot'); 
     let index = null;
     let totalMoves = 0;
@@ -96,46 +91,34 @@ const gameBoard = (function(){
         for(let i = 0; i < myBoard.length; i++){
             spots[i].textContent = myBoard[i]
         }
-        console.log(myBoard)
         totalMoves ++
     }
     const winningBoard = function(winner){
-        console.log(this)
-        
         if(myBoard[0] == this && myBoard[1] == this && myBoard[2] == this){
-            console.log(`${winner} wins`)
             winningState = winner
         }
         if(myBoard[3] == this && myBoard[4] == this && myBoard[5] == this){
-            console.log(`${winner} wins`)
             winningState = winner
         }
         if(myBoard[6] == this && myBoard[7] == this && myBoard[8] == this){
-            console.log(`${winner} wins`)
             winningState = winner
         }
         if(myBoard[0] == this && myBoard[3] == this && myBoard[6] == this){
-            console.log(`${winner} wins`)
             winningState = winner
         }
         if(myBoard[1] == this && myBoard[4] == this && myBoard[7] == this){
-            console.log(`${winner} wins`)
             winningState = winner
         }
         if(myBoard[2] == this && myBoard[5] == this && myBoard[8] == this){
-            console.log(`${winner} wins`)
             winningState = true
         }
         if(myBoard[2] == this && myBoard[5] == this && myBoard[8] == this){
-            console.log(`${winner} wins`)
             winningState = winner;
         }
         if(myBoard[0] == this && myBoard[4] == this && myBoard[8] == this){
-            console.log(`${winner} wins`)
             winningState = winner;
         }
         if(myBoard[2] == this && myBoard[4] == this && myBoard[6] == this){
-            console.log(`${winner} wins`)
             winningState = winner;
         }
         if(totalMoves == 9 && winningState == undefined){
