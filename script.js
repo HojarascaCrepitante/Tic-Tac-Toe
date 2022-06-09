@@ -127,7 +127,7 @@ const gameBoard = (function(){
             console.log(`${winner} wins`)
             winningState = true
         }
-        if(myBoard[3] == this && myBoard[5] == this && myBoard[8] == this){
+        if(myBoard[2] == this && myBoard[5] == this && myBoard[8] == this){
             console.log(`${winner} wins`)
             winningState = winner;
         }
