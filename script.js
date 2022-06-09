@@ -44,7 +44,7 @@ const gameLogic = (function(){
     }
     const isWinner = function(){
         gameBoard.winningBoard.call(player1.symbol, player1.name)
-        gameBoard.winningBoard.call(player2.symbol, player2.name )
+        gameBoard.winningBoard.call(player2.symbol, player2.name)
     }
 
     const announceWinner = function(){
@@ -62,7 +62,6 @@ const gameLogic = (function(){
         }
 
         if(this == player2.name){
-
             message.textContent = ` "${player2.name}" wins`
             congratulations.appendChild(message)
             congratulations.appendChild(restartGame)
@@ -80,7 +79,7 @@ const gameBoard = (function(){
     let spots = document.querySelectorAll('.spot'); 
     let index = null;
     let totalMoves = 0;
-    let winningState = "";
+    let winningState = undefined;
 
     const findIndex = function(){
          return index = this.dataset.index
@@ -139,7 +138,7 @@ const gameBoard = (function(){
             console.log(`${winner} wins`)
             winningState = winner;
         }
-        if(totalMoves == 9 && winningState == ''){
+        if(totalMoves == 9 && winningState == undefined){
             winningState = "Tie"
         }
     }
